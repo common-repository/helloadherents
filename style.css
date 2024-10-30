@@ -1,0 +1,129 @@
+.invisible_checkbox {
+  display: none !important;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 11px;
+  background-color: #DDD;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.toggle:after {
+  content: '';
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.2s;
+}
+
+.options_group:checked + .toggle {
+  background-color: #3eafe9;
+  border-color: #3eafe9;
+}
+
+.options_group:checked + .toggle:after {
+  left: 20px;
+  border-color: #3eafe9;
+}
+
+#content_options_group {
+  margin-top: 1em;
+  position: relative;
+  overflow: visible;
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  opacity: 0;
+  transform: translateY(-2em);
+  z-index: -1;
+  max-height: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s, transform 0.3s;
+}
+
+.options_group:checked ~ #content_options_group {
+  opacity: 1;
+  transform: translateY(0%);
+  z-index: 100;
+  max-height: none;
+  transition: max-height 0.3s ease-in, opacity 0.3s, transform 0.3s;
+}
+
+
+
+div.options_group {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+div.ha_option_label {
+  display:inline-block;
+  width:25%;
+  font-size: 14px;
+  margin-left: 7%;
+}
+
+div.ha_option_input {
+  display:inline-block;
+  width:50%;
+}
+
+.option_group_info {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.result_area {
+  color: white;
+  font-size: 10px;
+  height: 0;
+  overflow: scroll;
+}
+
+
+/* AFFICHAGE INFOS EN SURVOL */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -100px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
